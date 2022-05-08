@@ -1,0 +1,13 @@
+export { default as About } from './About';
+export { default as Play } from './Play';
+export { default as UiDesign } from './UiDesign';
+export { default as Visit } from './Visit';
+export { default as Logo } from './Logo';
+export { default as Github } from './Github';
+export { default as Twitter } from './Twitter';
+export { default as Behance } from './Behance';
+export { default as Linkedin } from './Linkedin';
+export { default as Moon } from './Moon';
+export { default as Sun } from './Sun';
+export { default as RightArrow } from './RightArrow';
+export { default as PlayLeft } from './PlayLeft';

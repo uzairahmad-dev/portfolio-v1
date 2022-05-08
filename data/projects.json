@@ -1,0 +1,86 @@
+[
+    {
+        "id": 0,
+        "title": "Lighthouse Reality",
+        "description": "",
+        "details_1": "",
+        "details_2":"",
+        "details_3":"",
+        "tools": [
+            "SASS",
+            "Next.js",
+            "Vue.js",
+            "Node.js",
+            "Mongodb",
+            "PostgreSQL",
+            "Docker",
+            "AWS",
+            "Microservices"
+        ],
+        "coverImg": "https://i.ibb.co/Lz2SF84/Lighthouse.png",
+        "links": {
+            "code": "https://github.com/uzairahmad-dev/lighthouse-reality",
+            "ui": "",
+            "url": ""
+        }
+    },
+    {
+        "id": 1,
+        "title": "Guider",
+        "description": "",
+        "details_1": "",
+        "details_2":"",
+        "details_3":"",
+        "tools": [
+            "SASS",
+            "React.js",
+            "Express.js",
+            "Google Maps",
+            "Stripe",
+            "Auth0"
+        ],
+        "coverImg": "https://i.ibb.co/H4hYBj6/guider.png",
+        "links": {
+            "code": "https://github.com/uzairahmad-dev/guider",
+            "ui": "https://vimeo.com/696104380",
+            "url": ""
+        }
+    },
+    {
+        "id": 2,
+        "title": "Al Raheem Motors",
+        "description": "",
+        "details_1": "",
+        "details_2":"",
+        "details_3":"",
+        "tools": [
+            "React.js",
+            "Firebase"
+        ],
+        "coverImg": "https://i.ibb.co/ncxFxp7/alraheem.png",
+        "links": {
+            "code": "https://github.com/uzairahmad-dev/alraheem-motors",
+            "ui": "https://www.behance.net/gallery/141178675/Al-Raheem-Motors",
+            "url": "https://www.alraheemmotors.com/"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Forkify",
+        "description": "This web application is developed with React & Typescript and its main functionality is user an get recipes and make shopping lists",
+        "details_1": "An application use for getting 1M+ recipes from Forkify API, built with React, Context-API, Typescript and CSS. This Project was part of the Javascript course by Jonas schmedtmann but i changed his project to React & Typescript.",
+        "details_2":"",
+        "details_3":"",
+        "tools": [
+            "React.js",
+            "Context API",
+            "Typescript"
+        ],
+        "coverImg": "https://i.ibb.co/0sZ0SJ7/forkify.png",
+        "links": {
+            "code": "https://github.com/uzairahmad-dev/forkify-react",
+            "ui": "",
+            "url": "https://forkify-react-type.netlify.app/"
+        }
+    }
+]

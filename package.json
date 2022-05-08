@@ -9,16 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "airtable": "^0.11.3",
+    "axios": "^0.26.1",
     "next": "12.1.4",
+    "next-themes": "^0.1.1",
+    "nprogress": "^0.2.0",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-reveal": "^1.2.2",
+    "react-scroll": "^1.8.7",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.0",
     "@types/react-dom": "18.0.0",
+    "@types/react-scroll": "^1.8.3",
+    "@types/react-slick": "^0.23.8",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.23",
     "typescript": "4.6.3"
   }
 }
