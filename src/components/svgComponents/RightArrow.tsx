@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { SVGProps } from 'react';
 
-const SvgRightArrow = (props: SVGProps<SVGSVGElement>) => (
+const SvgRightArrow = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
