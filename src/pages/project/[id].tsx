@@ -9,11 +9,11 @@ import Slide from 'react-reveal/Slide';
 
 import type { NextPage, GetStaticProps, GetStaticPaths  } from 'next';
 
+import { findProjects } from '../../lib/airtable';
 import ProjectsNav from '../../components/projectsNav';
 import ToolsList from '../../components/utils/toolsList';
 import ProjectLinks from '../../components/utils/projectLinks';
 
-import { fetchProjects } from '../../../lib/projects';
 import { Project } from '../../../interfaces/app_interfaces';
 
 interface ProjectsPageProps {
@@ -28,7 +28,6 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
   const router = useRouter();
   const id = router.query.id;
   const currentProject = ids.findIndex(el => el === id);
-  console.log(1);
 
   useEffect(() => {
     if(!(currentProject === -1)) {
@@ -107,7 +106,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params;
 
-  const projects = await fetchProjects();
+  const projects = await findProjects();
   const projectIds = projects.map((project: Project) => {
     return project.id
   });
@@ -123,7 +122,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await fetchProjects();
+  const projects = await findProjects();
   const paths = projects.map((project: Project) => {
     return {
       params: {

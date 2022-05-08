@@ -5,7 +5,7 @@ import MainHeader from '../components/mainHeader';
 import SectionAbout from '../components/sectionAbout';
 import Projects from '../components/projects';
 
-import { fetchProjects } from '../../lib/projects';
+import { findProjects } from '../lib/airtable';
 import { Project } from '../../interfaces/app_interfaces';
 
 interface HomeProps {
@@ -13,12 +13,12 @@ interface HomeProps {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async (_) => {
-  const projects = await fetchProjects();
-  return {
-    props: {
-      projects
+    const projects = await findProjects();
+    return {
+      props: {
+        projects
+      }
     }
-  }
 };
 
 const Home: NextPage<HomeProps> = ({ projects }) => {
