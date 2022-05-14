@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ title, image, description, id, cls }) => {
         <div className={`flex flex-col mx-2 ${cls ? cls : ''}`}>
             <div className="z-20 -mb-8">
                 <div className="w-full lg:h-[12rem] h-[9rem] relative">
-                    <Image className="clip-style-images" src={image} layout='fill' objectFit='cover' objectPosition='left top' quality={80} alt={title} priority/>
+                    <Image className="clip-style-images" src={image} layout='fill' objectFit='cover' objectPosition='left top' alt={title}/>
                 </div>
             </div>
             <div className="self-center bg-light_b dark:bg-secondary_h p-2 md:p-4 w-[85%] shadow-lg rounded-lg z-10">

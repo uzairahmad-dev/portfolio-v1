@@ -24,3 +24,10 @@ export const findProjects = async () => {
 
     return getMinifiedRecords(projectsRecords);
 };
+
+export const findProjectById = async (id) => {
+  const project = await table.select({
+    filterByFormula: `id="${id}"`
+  }).firstPage();
+  return getMinifiedRecords(project);
+};

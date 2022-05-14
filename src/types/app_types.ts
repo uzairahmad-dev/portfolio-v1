@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface Project {
     id: string;
     ui_url: string;
@@ -13,16 +11,3 @@ export interface Project {
     title: string;
     libs: string[];
 }
-
-export enum ProjectsActionTypes {
-    SET_PROJECTS = "SET_PROJECTS"
-  };
-
-export interface ProjectsAction {
-    type: ProjectsActionTypes,
-    payload?: any 
-};
-
-export interface ProjectsProviderProps {
-    children: React.ReactNode;
-};

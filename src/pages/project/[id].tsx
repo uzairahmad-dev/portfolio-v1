@@ -9,7 +9,7 @@ import Slide from 'react-reveal/Slide';
 
 import type { NextPage, GetServerSideProps } from 'next';
 
-import { findProjects } from '../../lib/airtable';
+import { findProjects, findProjectById } from '../../lib/airtable';
 import ProjectsNav from '../../components/projectsNav';
 import ToolsList from '../../components/utils/toolsList';
 import ProjectLinks from '../../components/utils/projectLinks';
@@ -74,7 +74,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
               <div className='w-full flex flex-col md:flex-row items-center gap-3 h-[40vh] mt-5'>
                   <Slide left spy={nextProject}>
                     <div className='w-full md:w-1/2 h-[25vh] md:h-full relative overflow-hidden shadow-lg'>
-                        <Image className='rounded-md shadow max-w-full h-auto' src={project.img} alt='lighthouse reality image' layout='fill' objectFit='cover' objectPosition='left top' />
+                        <Image className='rounded-md shadow max-w-full h-auto' src={project.img} alt={`${project.title} image`} layout='fill' objectFit='cover' objectPosition='left top' />
                     </div>
                   </Slide>
                   <Slide right spy={nextProject}>
@@ -104,19 +104,17 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const params = context.params;
+  const id = context.params?.id;
+  const project = await findProjectById(id);
 
   const projects = await findProjects();
   const projectIds = projects.map((project: Project) => {
     return project.id
   });
-  const findProjectById = projects.find((project: Project) => {
-    return project.id.toString() === params?.id; //dynamic id
-  });
   return {
     props: {
-      project: findProjectById ? findProjectById : null,
-      ids: projectIds ? projectIds : null
+      project: project ? project[0] : null,
+      ids: projectIds ? projectIds : null,
     },
   };
 }
