@@ -7,14 +7,14 @@ import DefaultErrorPage from 'next/error';
 import Zoom from 'react-reveal/Zoom';
 import Slide from 'react-reveal/Slide';
 
-import type { NextPage, GetStaticProps, GetStaticPaths  } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 
 import { findProjects } from '../../lib/airtable';
 import ProjectsNav from '../../components/projectsNav';
 import ToolsList from '../../components/utils/toolsList';
 import ProjectLinks from '../../components/utils/projectLinks';
 
-import { Project } from '../../../interfaces/app_interfaces';
+import { Project } from '../../types/app_types';
 
 interface ProjectsPageProps {
     project: Project;
@@ -103,7 +103,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const params = context.params;
 
   const projects = await findProjects();
@@ -118,21 +118,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       project: findProjectById ? findProjectById : null,
       ids: projectIds ? projectIds : null
     },
-  };
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await findProjects();
-  const paths = projects.map((project: Project) => {
-    return {
-      params: {
-        id: project.id.toString(),
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: true,
   };
 }
 

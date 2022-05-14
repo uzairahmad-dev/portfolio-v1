@@ -5,7 +5,7 @@ import Slide from 'react-reveal/Slide';
 import Heading from "./utils/heading";
 import Card from "./utils/card";
 
-import { Project } from '../../interfaces/app_interfaces';
+import { Project } from '../types/app_types';
 import { Play, PlayLeft } from './svgComponents/index';
 
 import "slick-carousel/slick/slick.css";
