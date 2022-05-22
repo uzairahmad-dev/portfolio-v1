@@ -7,7 +7,6 @@ import 'nprogress/nprogress.css';
 import {ThemeProvider} from 'next-themes';
 
 import '../../styles/globals.css';
-import Layout from '../components/layout';
 import LoadingScreen from '../components/loadingScreen';
 
 NProgress.configure({ showSpinner: false });
@@ -32,10 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider enableSystem={true} attribute='class' defaultTheme='dark'>
       {
         !loading ? (
-          
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+          <Component {...pageProps} />
           
         ) : (
           <LoadingScreen />

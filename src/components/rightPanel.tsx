@@ -12,18 +12,18 @@ const RightPanel: React.FC = () => {
         <Bounce bottom>
             {
                 isNotMobile &&
-                <div className='fixed bottom-[1rem] right-[2rem] p-2 flex flex-col gap-5 z-50'>
+                <div className='fixed bottom-1 right-1 p-2 flex flex-col gap-5 z-50'>
                     <a className='group ease-in duration-150 hover:-translate-y-1' href='https://github.com/uzairahmad-dev' target="_blank" rel="noreferrer">
-                        <Github className='stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
+                        <Github className='2xl:w-8 2xl:h-8 stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
                     </a>
                     <a className='group ease-in duration-150 hover:-translate-y-1' href='https://www.linkedin.com/in/uzairahmaddev/' target="_blank" rel="noreferrer">
-                        <Linkedin className='stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
+                        <Linkedin className='2xl:w-8 2xl:h-8 stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
                     </a>
                     <a className='group ease-in duration-150 hover:-translate-y-1' href='https://www.behance.net/uzairahmad5' target="_blank" rel="noreferrer">
-                        <Behance className='stroke-light_primary group-hover:stroke-light_h fill-light_primary group-hover:fill-light_h dark:stroke-secondary_h dark:fill-secondary_h dark:group-hover:stroke-primary dark:group-hover:fill-primary' />
+                        <Behance className='2xl:w-8 2xl:h-8 stroke-light_primary group-hover:stroke-light_h fill-light_primary group-hover:fill-light_h dark:stroke-secondary_h dark:fill-secondary_h dark:group-hover:stroke-primary dark:group-hover:fill-primary' />
                     </a>
                     <a className='group ease-in duration-150 hover:-translate-y-1' href='https://twitter.com/uzairahmad_dev' target="_blank" rel="noreferrer">
-                        <Twitter className='stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
+                        <Twitter className='2xl:w-8 2xl:h-8 stroke-light_primary group-hover:stroke-light_h dark:stroke-secondary_h dark:group-hover:stroke-primary' />
                     </a>
                 </div>
         }

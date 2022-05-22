@@ -10,17 +10,17 @@ const Banner: React.FC = () => {
 
     return (
         <Zoom left>
-            <section className='w-3/5 mx-auto'>
+            <section className='w-full md:w-4/5 lg:w-3/5 mx-auto'>
                 <div className='font-alegreya text-center'>
-                    <h1 className='text-light_h dark:text-secondary_h font-bold md:text-[2.8rem] xl:text-[3.1rem] text-[2rem]'>
-                    <span className='text-light_primary dark:text-primary font-bold'>Uzair</span> Ahmad
+                    <h1 className='text-light_h dark:text-secondary_h font-bold text-4xl xl:text-5xl 2xl:text-6xl'>
+                        <span className='text-light_primary dark:text-primary font-bold'>Uzair</span> Ahmad
                     </h1>
-                    <h2 className="text-light_primary dark:text-secondary_h font-literata md:text-[2rem] xl:text-[2.4rem] text-[1.6rem]"><Zoom left cascade>Full Stack Web Developer</Zoom></h2>
-                    <p className="text-light_p dark:text-secondary_p sm:text-[1rem] xl:text-[1.4rem]">
+                    <h2 className="text-light_primary dark:text-secondary_h font-literata my-1 text-xl xl:text-3xl 2xl:text-4xl"><Zoom left cascade>Full Stack Web Developer</Zoom></h2>
+                    <p className="text-light_p dark:text-secondary_p text-md md:text-xl xl:text-2xl 2xl:text-3xl">
                         {bannerPara}
                     </p>
                 </div>
-                <div className='text-center flex justify-around mt-6'>
+                <div className='text-center flex justify-around mt-4 lg:mt-6'>
                     <ButtonMailto label='Email Me' mailto="mailto:uzairahmad.dev@gmail.com" />
                     <ButtonScroll text='View Projects' to='projects' />
                 </div>

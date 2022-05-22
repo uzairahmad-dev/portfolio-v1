@@ -4,6 +4,9 @@ import Head from 'next/head';
 import MainHeader from '../components/mainHeader';
 import SectionAbout from '../components/sectionAbout';
 import Projects from '../components/projects';
+import RightPanel from '../components/rightPanel';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 import { findProjects } from '../lib/airtable';
 import { Project } from '../types/app_types';
@@ -29,10 +32,13 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
             Uzair Ahmad | Web Developer
         </title>
       </Head>
-      <main className="container relative">
+      <main className='relative'>
+        <RightPanel />
+        <Navbar />
         <MainHeader />
         <SectionAbout />
         <Projects projects={projects} />
+        <Footer />
       </main>
     </>
   )

@@ -52,22 +52,29 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               }
             },
             {
-              breakpoint: 640,
+                breakpoint: 640,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+            },
+            {
+              breakpoint: 500,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
+                centerMode: false
               }
             }
           ]
     };
 
     return (
-        <section className="mt-[2rem] mb-[2rem] w-[99%]" id="projects" >
+        <section className="mt-4 md:mt-8 mb-6 md:mb-8 w-[99%]" id="projects" >
             <Heading text='Projects' />
             <Slide bottom>
                 <div className="p-2 mx-auto my-2 w-[90%]">
                     <Slider 
-                    
                         lazyLoad="progressive"
                         {...settings}
                         beforeChange={(_,next) => setCardIndex(next)}

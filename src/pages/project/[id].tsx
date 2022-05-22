@@ -9,10 +9,13 @@ import Slide from 'react-reveal/Slide';
 
 import type { NextPage, GetServerSideProps } from 'next';
 
-import { findProjects, findProjectById } from '../../lib/airtable';
+import { findProjects } from '../../lib/airtable';
 import ProjectsNav from '../../components/projectsNav';
 import ToolsList from '../../components/utils/toolsList';
 import ProjectLinks from '../../components/utils/projectLinks';
+import RightPanel from '../../components/rightPanel';
+import Navbar from '../../components/navbar';
+import Footer from '../../components/footer';
 
 import { Project } from '../../types/app_types';
 
@@ -67,53 +70,62 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
                 Project | {project.title}
               </title>
           </Head>
-          <section className='mt-2 w-[86%] m-auto h-auto'>
-              <Zoom top spy={nextProject}>
-                <ProjectsNav handlePrev={handlePrev} handleNext={handleNext} />
-              </Zoom>
-              <div className='w-full flex flex-col md:flex-row items-center gap-3 h-[40vh] mt-5'>
-                  <Slide left spy={nextProject}>
-                    <div className='w-full md:w-1/2 h-[25vh] md:h-full relative overflow-hidden shadow-lg'>
-                        <Image className='rounded-md shadow max-w-full h-auto' src={project.img} alt={`${project.title} image`} layout='fill' objectFit='cover' objectPosition='left top' />
+          <main className='relative'>
+            <RightPanel />
+            <Navbar />
+            <Zoom top spy={id}>
+              <ProjectsNav handlePrev={handlePrev} handleNext={handleNext} />
+            </Zoom>
+            <div className='w-[98%] flex flex-col gap-2 md:gap-4'>
+                <div className='relative in_sm:flex in_sm:flex-col in_sm:gap-3'>
+                  <Slide left spy={id}>
+                      <div className='w-full h-[12rem] md:w-[67%] md:h-[22rem] relative group rounded-md shadow-lg'>
+                        <Image className='rounded-md block' src={project.img} alt={`${project.title} image`} layout="fill" objectFit='cover' objectPosition='left top' />
+                        <div className='absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary opacity-40 rounded-md group-hover:left-1/4 group-hover:opacity-0 transition-all duration-300 ease-in'></div>
+                      </div>
+                  </Slide>
+                  <Slide right spy={id}>
+                    <div className='md:absolute md:top-20 md:right-1 md:-translate-y-1/2 md:w-2/4 bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4'>
+                        <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] my-2'>{project.title}</h1>
+                        <p className='text-light_h dark:text-secondary_h font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify'>{project.details_1}</p>                    
+                        <div className='flex justify-end'>
+                          <ToolsList tools={project.libs} spy={nextProject} />  
+                        </div>    
                     </div>
                   </Slide>
-                  <Slide right spy={nextProject}>
-                  <div className='bg-light_b dark:bg-dark_b w-full h-[25vh] md:h-full md:w-1/2 rounded-md shadow-lg p-4 relative'>
-                      <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] my-2'>{project.title}</h1>
-                      <p className='text-light_h dark:text-secondary_h font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify'>{project.details_1}</p>                    
-                      <ToolsList tools={project.libs} />
-                  </div>
-                  </Slide>
-              </div>
-              <Slide bottom wait={800} spy={nextProject}>
-                <div className='my-4 bg-light_b dark:bg-dark_b rounded-md shadow-lg w-full p-4 flex flex-col md:flex-row md:items-start gap-2 md:gap-10'>
-                    <div className='w-full md:w-2/3'>
-                        <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-2'>Project Details</h1>
-                        <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_2}</p>
-                        <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_3}</p>
-                    </div>
-                    <div className='w-full md:w-1/3'>
-                        <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-4 md:mb-2'>Project Links</h1>                    
-                        <ProjectLinks code_url={project.code_url} url={project.url} ui_url={project.ui_url} />         
-                    </div>
                 </div>
+                <Slide bottom wait={800} spy={id}>
+                  <div className='bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4 flex flex-col md:flex-row md:items-start gap-2 md:gap-10'>
+                      <div className='w-full md:w-2/3'>
+                          <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-2'>Project Details</h1>
+                          <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_2}</p>
+                          <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_3}</p>
+                      </div>
+                      <div className='w-full md:w-1/3'>
+                          <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-4 md:mb-2'>Project Links</h1>                    
+                          <ProjectLinks code_url={project.code_url} url={project.url} ui_url={project.ui_url} />         
+                      </div>
+                  </div>
               </Slide>
-          </section>
+            </div>
+            <Footer />
+          </main>
       </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.params?.id;
-  const project = await findProjectById(id);
-
   const projects = await findProjects();
   const projectIds = projects.map((project: Project) => {
     return project.id
   });
+  const currentProject = projects.find((project: Project) => {
+    return project.id.toString() === id; //dynamic id
+  });
   return {
     props: {
-      project: project ? project[0] : null,
+      project: currentProject ? currentProject : null,
       ids: projectIds ? projectIds : null,
     },
   };
