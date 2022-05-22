@@ -85,7 +85,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
                       </div>
                   </Slide>
                   <Slide right spy={id}>
-                    <div className='md:absolute md:top-20 md:right-1 md:-translate-y-1/2 md:w-2/4 bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4'>
+                    <div className='md:absolute md:top-20 md:right-1 md:w-2/4 bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4'>
                         <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] my-2'>{project.title}</h1>
                         <p className='text-light_h dark:text-secondary_h font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify'>{project.details_1}</p>                    
                         <div className='flex justify-end'>
