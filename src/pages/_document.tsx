@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
         <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Literata:wght@300;400;500;700&display=optional" rel="stylesheet" />
         </Head>
-        <body className="container relative bg-light dark:bg-dark font-literata overflow-x-hidden">
+        <body className="bg-light dark:bg-dark font-literata overflow-x-hidden">
           <Main></Main>
           <NextScript />
         </body>

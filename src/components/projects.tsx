@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Slider from 'react-slick';
-import Slide from 'react-reveal/Slide';
 
 import Heading from "./utils/heading";
 import Card from "./utils/card";
@@ -72,30 +71,28 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     return (
         <section className="mt-4 md:mt-8 mb-6 md:mb-8 w-[99%]" id="projects" >
             <Heading text='Projects' />
-            <Slide bottom>
-                <div className="p-2 mx-auto my-2 w-[90%]">
-                    <Slider 
-                        lazyLoad="progressive"
-                        {...settings}
-                        beforeChange={(_,next) => setCardIndex(next)}
-                    >
-                        {
-                            projects.map((el,idx) => {
-                            return (
-                                    <Card 
-                                        cls={idx === cardIndex ? 'lg:transition-transform lg:duration-300 ' : 'lg:scale-[0.7] lg:transition-transform lg:duration-300 in_sm:opacity-50 lg:opacity-50'}
-                                        key={el.id}
-                                        title={el.title}
-                                        description={el.description}
-                                        id={el.id}
-                                        image={el.img}
-                                    />
-                            )
-                            })
-                        }
-                    </Slider>
-                </div>
-            </Slide>
+            <div className="p-2 mx-auto my-2 w-[90%]">
+                <Slider 
+                    lazyLoad="progressive"
+                    {...settings}
+                    beforeChange={(_,next) => setCardIndex(next)}
+                >
+                    {
+                        projects.map((el,idx) => {
+                        return (
+                                <Card 
+                                    cls={idx === cardIndex ? 'lg:transition-transform lg:duration-300 ' : 'lg:scale-[0.7] lg:transition-transform lg:duration-300 in_sm:opacity-50 lg:opacity-50'}
+                                    key={el.id}
+                                    title={el.title}
+                                    description={el.description}
+                                    id={el.id}
+                                    image={el.img}
+                                />
+                        )
+                        })
+                    }
+                </Slider>
+            </div>
         </section>
     );
 };

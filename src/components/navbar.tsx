@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 
 import { useTheme } from 'next-themes';
-import Fade from 'react-reveal/Fade';
 
 import ButtonLink from './utils/buttonLink';
 import { Logo, Moon, Sun } from './svgComponents/index';
@@ -31,19 +30,17 @@ const Navbar:React.FC = () => {
     };
 
     return (
-        <Fade top>
-            <nav className="flex justify-between items-center p-2 lg:p-3">
-                <Link href='/'>
-                    <a>
-                        <Logo className='w-12 md:w-16 lg:w-20 xl:w-24 2xl:w-28 cursor-pointer fill-light_primary dark:fill-primary' width='100%' height='100%' />
-                    </a>
-                </Link>
-                <div className='flex items-center justify-between gap-2 md:gap-4 lg:gap-6'>
-                    {renderThemeChanger()}
-                    <ButtonLink handler={() => window.open('/api/resume', '_blank')} text='Resume' />
-                </div>
-            </nav>
-        </Fade>
+        <nav className="flex justify-between items-center p-2 lg:p-3">
+            <Link href='/'>
+                <a>
+                    <Logo className='w-12 md:w-16 lg:w-20 xl:w-24 2xl:w-28 cursor-pointer fill-light_primary dark:fill-primary' width='100%' height='100%' />
+                </a>
+            </Link>
+            <div className='flex items-center justify-between gap-2 md:gap-4 lg:gap-6'>
+                {renderThemeChanger()}
+                <ButtonLink handler={() => window.open('/api/resume', '_blank')} text='Resume' />
+            </div>
+        </nav>
     );  
 }
 

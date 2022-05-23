@@ -1,5 +1,4 @@
 import React from 'react';
-import Bounce from 'react-reveal/Bounce';
 
 import {useMatchMedia } from '../hooks/useMatchMedia';
 import { Github, Linkedin, Behance, Twitter } from './svgComponents/index';
@@ -9,7 +8,7 @@ const RightPanel: React.FC = () => {
     const isNotMobile = useMatchMedia('(min-width: 640px)', true);
 
     return (
-        <Bounce bottom>
+        <>
             {
                 isNotMobile &&
                 <div className='fixed bottom-1 right-1 p-2 flex flex-col gap-5 z-50'>
@@ -27,7 +26,7 @@ const RightPanel: React.FC = () => {
                     </a>
                 </div>
         }
-        </Bounce>
+        </>
     );
 };
 

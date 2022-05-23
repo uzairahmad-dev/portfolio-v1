@@ -32,14 +32,14 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
             Uzair Ahmad | Web Developer
         </title>
       </Head>
-      <main className='relative'>
+      <Navbar />
+      <main className='relative container'>
         <RightPanel />
-        <Navbar />
         <MainHeader />
         <SectionAbout />
         <Projects projects={projects} />
-        <Footer />
       </main>
+      <Footer />
     </>
   )
 }
