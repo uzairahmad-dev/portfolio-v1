@@ -3,6 +3,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import {useRouter} from 'next/router';
 import DefaultErrorPage from 'next/error';
+
+import Zoom from 'react-reveal/Zoom';
+import Slide from 'react-reveal/Slide';
+
 import type { NextPage, GetServerSideProps } from 'next';
 
 import { findProjects } from '../../lib/airtable';
@@ -12,6 +16,7 @@ import ProjectLinks from '../../components/utils/projectLinks';
 import RightPanel from '../../components/rightPanel';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
+
 import { Project } from '../../types/app_types';
 
 interface ProjectsPageProps {
@@ -65,16 +70,21 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
                 Project | {project.title}
               </title>
           </Head>
+          <RightPanel />
           <Navbar />
-          <main className='relative container'>
-            <RightPanel />
-            <ProjectsNav handlePrev={handlePrev} handleNext={handleNext} />
+          <main className='container'>
+            <Zoom top spy={nextProject}>
+              <ProjectsNav handlePrev={handlePrev} handleNext={handleNext} />
+            </Zoom>
             <div className='w-[98%] flex flex-col gap-2 md:gap-4'>
                 <div className='relative in_sm:flex in_sm:flex-col in_sm:gap-3'>
+                  <Slide collapse left spy={nextProject}>
                       <div className='w-full h-[12rem] md:w-[67%] md:h-[22rem] relative group rounded-md shadow-lg'>
                         <Image className='rounded-md block' src={project.img} alt={`${project.title} image`} layout="fill" objectFit='cover' objectPosition='left top' />
                         <div className='absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary opacity-40 rounded-md group-hover:left-1/4 group-hover:opacity-0 transition-all duration-300 ease-in'></div>
                       </div>
+                  </Slide>
+                  <Slide right spy={nextProject}>
                     <div className='md:absolute md:top-20 md:right-1 md:w-2/4 bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4'>
                         <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] my-2'>{project.title}</h1>
                         <p className='text-light_h dark:text-secondary_h font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify'>{project.details_1}</p>                    
@@ -82,18 +92,21 @@ const Projects: NextPage<ProjectsPageProps> = ({ project, ids }) => {
                           <ToolsList tools={project.libs} spy={nextProject} />  
                         </div>    
                     </div>
+                  </Slide>
                 </div>
-                <div className='bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4 flex flex-col md:flex-row md:items-start gap-2 md:gap-10'>
-                    <div className='w-full md:w-2/3'>
-                        <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-2'>Project Details</h1>
-                        <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_2}</p>
-                        <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_3}</p>
-                    </div>
-                    <div className='w-full md:w-1/3'>
-                        <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-4 md:mb-2'>Project Links</h1>                    
-                        <ProjectLinks code_url={project.code_url} url={project.url} ui_url={project.ui_url} />         
-                    </div>
-                </div>
+                <Slide bottom spy={nextProject}>
+                  <div className='bg-light_b dark:bg-dark_b rounded-md shadow-lg p-4 flex flex-col md:flex-row md:items-start gap-2 md:gap-10'>
+                      <div className='w-full md:w-2/3'>
+                          <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-2'>Project Details</h1>
+                          <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_2}</p>
+                          <p className='text-light_p dark:text-secondary_p font-light font-alegreya text-[14px] md:text-[1rem] xl:text-[1.2rem] text-justify mb-2'>{project.details_3}</p>
+                      </div>
+                      <div className='w-full md:w-1/3'>
+                          <h1 className='text-light_h dark:text-secondary_h font-bold text-[1rem] md:text-[1.2rem] xl:text-[1.4rem] mb-4 md:mb-2'>Project Links</h1>                    
+                          <ProjectLinks code_url={project.code_url} url={project.url} ui_url={project.ui_url} />         
+                      </div>
+                  </div>
+              </Slide>
             </div>
           </main>
           <Footer />

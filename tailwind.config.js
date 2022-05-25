@@ -31,19 +31,10 @@ module.exports = {
     },
     screens: {
       'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
       'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
       'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
       '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
       'in_md': {'max': '768px'},
       'in_sm': {'max': '640px'} 
     },
@@ -54,8 +45,5 @@ module.exports = {
   variants: {
     stroke: ['hover','focus','group-hover'],
     fill: ['hover','focus','group-hover'],
-  },
-  plugins: [
-    
-  ],
+  }
 }

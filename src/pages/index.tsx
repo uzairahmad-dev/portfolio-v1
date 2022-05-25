@@ -1,5 +1,6 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
+import Bounce from 'react-reveal/Bounce'
 
 import MainHeader from '../components/mainHeader';
 import SectionAbout from '../components/sectionAbout';
@@ -32,9 +33,9 @@ const Home: NextPage<HomeProps> = ({ projects }) => {
             Uzair Ahmad | Web Developer
         </title>
       </Head>
+      <RightPanel />
       <Navbar />
-      <main className='relative container'>
-        <RightPanel />
+      <main className='container'>
         <MainHeader />
         <SectionAbout />
         <Projects projects={projects} />

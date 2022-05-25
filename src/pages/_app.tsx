@@ -3,11 +3,14 @@ import Router from 'next/router';
 import type { AppProps } from 'next/app';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import config from 'react-reveal/globals';
 
 import {ThemeProvider} from 'next-themes';
 
 import '../../styles/globals.css';
 import LoadingScreen from '../components/loadingScreen';
+
+config({ ssrReveal: true });
 
 NProgress.configure({ showSpinner: false });
 
@@ -32,7 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       {
         !loading ? (
           <Component {...pageProps} />
-          
         ) : (
           <LoadingScreen />
         )
