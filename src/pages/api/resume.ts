@@ -5,7 +5,7 @@ import path from 'path';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const pdfPath = path.join(process.cwd(), `/data/Resume.pdf`);
+    const pdfPath = path.join(process.cwd(), `/data/resume.pdf`);
     const data = fs.readFileSync(pdfPath);
     res.setHeader('Content-Type', 'application/pdf');
     res.status(200).send(data);
