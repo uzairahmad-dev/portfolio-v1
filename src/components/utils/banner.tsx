@@ -15,7 +15,7 @@ const Banner: React.FC = () => {
                     <h1 className='text-light_h dark:text-secondary_h font-bold text-4xl xl:text-5xl 2xl:text-6xl'>
                         <span className='text-light_primary dark:text-primary font-bold'>Uzair</span> Ahmad
                     </h1>
-                    <h2 className="text-light_primary dark:text-secondary_h font-literata my-1 text-xl xl:text-3xl 2xl:text-4xl"><Zoom left cascade delay={2100}>Front End Web Developer</Zoom></h2>
+                    <h2 className="text-light_primary dark:text-secondary_h font-literata my-1 text-xl xl:text-3xl 2xl:text-4xl"><Zoom left cascade delay={2100}>Full Stack Developer</Zoom></h2>
                     <p className="text-light_p dark:text-secondary_p text-md md:text-xl xl:text-2xl 2xl:text-3xl">
                         {bannerPara}
                     </p>
